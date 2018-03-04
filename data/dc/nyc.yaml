@@ -1,0 +1,5 @@
+---
+profile::base::ntpdata:
+  - server VaLue1.mserver.com
+  - server valuE2.mserVer.COM
+  - server value9.maeraaaaaXXXver.com
