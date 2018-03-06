@@ -3,11 +3,11 @@ class profile::base (
   Array $ipdata = [],
 )
 {
-  file { '/etc/ntptest.conf':
+  file { '/etc/ntp.conf':
     ensure  => file,
     content => inline_epp('<% $ntpdata.each |$data| { -%> <%= "server: $data\n" %><% } -%>')
   }
-  file { '/etc/cron.denytest':
+  file { '/etc/cron.deny':
     ensure  => file,
     content => inline_epp('<% $ipdata.each |$data| { -%> <%= "$data\n" %><% } -%>')
   }

@@ -7,7 +7,7 @@ hierarchy:
     path: "nodes/%{trusted.certname}.yaml"
 
   - name: "Per-OS defaults"
-    path: "os/%{facts.os.family}.yaml"
+    path: "os/%{operatingsystem}.yaml"
 
   - name: "Per-datacenter defaults"
     path: "dc/%{datacenter}.yaml"
