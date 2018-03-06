@@ -1,3 +1,0 @@
----
-profile::ht::ssl: true
-profile::ht::site_alias: ci.example.com

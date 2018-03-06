@@ -3,14 +3,8 @@
 version: 5
 
 hierarchy:
-  - name: "Per-node data"
-    path: "nodes/%{trusted.certname}.yaml"
-
   - name: "Per-OS defaults"
     path: "os/%{operatingsystem}.yaml"
 
   - name: "Per-datacenter defaults"
     path: "dc/%{datacenter}.yaml"
-
-  - name: "Common data"
-    path: "common.yaml"
