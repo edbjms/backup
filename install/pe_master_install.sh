@@ -4,5 +4,4 @@
 cd /opt/puppetlabs/bin
 ./puppet apply -e 'include pe_repo::platform::ubuntu_1604_amd64'
 echo puppetlabs | ./puppet-access login --username admin --lifetime 0
-#printf "nyc-agent\nlon-agent\n" >> /etc/puppetlabs/puppet/autosign.conf
-./puppet-code deploy production --wait
+#./puppet-code deploy production --wait
