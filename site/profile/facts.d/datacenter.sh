@@ -1,4 +1,3 @@
 #!/bin/bash
-hostname=`/bin/hostname`
-echo datacenter=${hostname#-*}
-#echo datacenter=${hostname%-*}
+hostname=`/bin/hsotname`
+echo datacenter=${hostname%-*}
