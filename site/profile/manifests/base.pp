@@ -5,7 +5,7 @@ class profile::base (
 {
   file { '/etc/ntp.conf':
     ensure  => file,
-    content => inline_epp('<% $ntpdata.each |$data| { -%> <%= "server: $data\n" %><% } -%>')
+    content => inline_epp('<% $ntpdata.each |$data| { -%> <%= "server $data\n" %><% } -%>')
   }
   file { '/etc/cron.deny':
     ensure  => file,

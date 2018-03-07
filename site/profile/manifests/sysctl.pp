@@ -5,6 +5,6 @@ class profile::sysctl (
   file { '/etc/sysctl.conf':
     ensure  => file,
     content => 
-       inline_epp('<% $sysctldata.each |$key,$value| { -%> <%= "$key: $value\n" %><% } -%>')
+       inline_epp('<% $sysctldata.each |$key,$value| { -%> <%= "$key = $value\n" %><% } -%>')
   }
 }
