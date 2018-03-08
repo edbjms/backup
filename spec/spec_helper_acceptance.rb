@@ -70,14 +70,12 @@ logger.info '=> Running puppet on the master'
 on 'master', puppet('node_manager', 'classes', '--update')
 on 'master', puppet('agent', '-t'), accept_all_exit_codes: true
 
-if File.exist?(File.join(PROJECT_ROOT, 'install/groups.json'))
-  logger.info '=> Importing groups.json classification'
-  scp_to 'master', File.join(PROJECT_ROOT, 'install/groups.json'), '/tmp/groups.json'
-  logger.log_level = :debug
-  run_script_on 'master', File.join(PROJECT_ROOT, 'spec', 'helpers', 'import_groups.sh')
-  on 'master', puppet('agent', '-t'), acceptable_exit_codes: [0, 2]
-  logger.log_level = orig_llevel
-end
+logger.info '=> Importing groups.json classification'
+scp_to 'master', File.join(PROJECT_ROOT, 'install/groups.json'), '/tmp/groups.json'
+logger.log_level = :debug
+run_script_on 'master', File.join(PROJECT_ROOT, 'spec', 'helpers', 'import_groups.sh')
+on 'master', puppet('agent', '-t'), acceptable_exit_codes: [0, 2]
+logger.log_level = orig_llevel
 
 hosts.each do |host|
   next if host['roles'].include?('master')
